@@ -1,7 +1,208 @@
 .home {
-  padding: $spacing-xl 0;
+  padding: $spacing-md 0;
 }
 
+// Carousel
+.carousel {
+  border: 1px solid $color-border-dark;
+  margin-bottom: 20px;
+  background: $color-bg;
+}
+
+.carousel-track {
+  position: relative;
+  overflow: hidden;
+}
+
+.carousel-slide {
+  display: none;
+
+  &.is-active { display: block; }
+}
+
+.carousel-link {
+  display: block;
+  padding: $spacing-lg $spacing-xl;
+  text-decoration: none;
+  color: inherit;
+
+  &:hover {
+    background: #f9f9f9;
+    text-decoration: none;
+
+    .carousel-title { color: $color-link; }
+  }
+
+  @media (max-width: $breakpoint-mobile) {
+    padding: $spacing-md;
+  }
+}
+
+.carousel-label {
+  font-family: $font-sans;
+  font-size: $font-size-xs;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: $color-text-secondary;
+  margin-bottom: $spacing-sm;
+  font-weight: bold;
+}
+
+.carousel-title {
+  font-family: $font-serif;
+  font-size: 1.6rem;
+  font-weight: bold;
+  line-height: 1.25;
+  margin: 0 0 $spacing-sm;
+  color: $color-text;
+
+  @media (max-width: $breakpoint-mobile) {
+    font-size: 1.25rem;
+  }
+}
+
+.carousel-excerpt {
+  font-family: $font-serif;
+  font-size: 0.95rem;
+  color: $color-text-secondary;
+  font-style: italic;
+  line-height: 1.65;
+  margin: 0 0 $spacing-md;
+  max-width: 620px;
+}
+
+.carousel-meta {
+  font-family: $font-sans;
+  font-size: $font-size-xs;
+  color: $color-text-secondary;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.carousel-author { font-weight: bold; }
+
+.carousel-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid $color-border;
+  padding: 8px $spacing-md;
+}
+
+.carousel-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  color: $color-text-secondary;
+  padding: 4px 8px;
+  font-family: $font-sans;
+
+  &:hover { color: $color-text; }
+}
+
+.carousel-dots {
+  display: flex;
+  gap: 6px;
+}
+
+.carousel-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: 1px solid $color-text;
+  background: none;
+  cursor: pointer;
+  padding: 0;
+
+  &.is-active { background: $color-text; }
+  &:hover { background: $color-text-secondary; }
+}
+
+// Tile grid
+.post-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  border: 1px solid $color-border-dark;
+  background-color: $color-border-dark;
+
+  @media (max-width: 900px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: $breakpoint-mobile) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.post-tile {
+  background: $color-bg;
+  overflow: hidden;
+}
+
+.post-tile-link {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: $spacing-md;
+  text-decoration: none;
+  color: inherit;
+
+  &:hover {
+    background: #f9f9f9;
+    text-decoration: none;
+
+    .post-tile-title { color: $color-link; }
+  }
+}
+
+.post-tile-meta {
+  font-family: $font-sans;
+  font-size: $font-size-xs;
+  color: $color-text-secondary;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.post-tile-author {
+  color: $color-text-secondary;
+}
+
+.meta-sep {
+  color: $color-border;
+}
+
+.post-tile-title {
+  margin: 0 0 8px;
+  font-family: $font-serif;
+  font-size: 1rem;
+  font-weight: bold;
+  line-height: 1.3;
+  color: $color-text;
+  flex-grow: 1;
+}
+
+.post-tile-excerpt {
+  margin: 0;
+  font-size: $font-size-small;
+  color: $color-text-secondary;
+  line-height: 1.5;
+  font-style: italic;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+// Feed layout — /writing/ and author pages
 .post-feed {
   display: flex;
   flex-direction: column;
@@ -12,13 +213,8 @@
   padding: $spacing-lg 0;
   border-bottom: 1px solid $color-border;
 
-  &:first-child {
-    padding-top: 0;
-  }
-
-  &:last-child {
-    border-bottom: none;
-  }
+  &:first-child { padding-top: 0; }
+  &:last-child  { border-bottom: none; }
 }
 
 .post-card--compact {
@@ -26,6 +222,7 @@
 }
 
 .post-card-meta {
+  font-family: $font-sans;
   font-size: $font-size-small;
   color: $color-text-secondary;
   margin-bottom: 8px;
@@ -34,43 +231,23 @@
   gap: 6px;
 
   a {
-    color: $color-accent;
-    font-weight: 500;
-
-    &:hover {
-      color: darken($color-accent, 15%);
-      text-decoration: none;
-    }
+    color: $color-text-secondary;
+    &:hover { color: $color-link; }
   }
-}
-
-.meta-sep {
-  color: $color-border;
 }
 
 .post-card-title {
   margin: 0 0 10px;
   font-family: $font-serif;
-  font-weight: normal;
+  font-weight: bold;
   line-height: 1.3;
+  font-size: 1.15rem;
 
   a {
     color: $color-text;
     text-decoration: none;
-
-    &:hover {
-      color: $color-link;
-      text-decoration: none;
-    }
+    &:hover { color: $color-link; }
   }
-}
-
-.post-card .post-card-title {
-  font-size: 1.5rem;
-}
-
-.post-card--compact .post-card-title {
-  font-size: 1.15rem;
 }
 
 .post-card-excerpt {
@@ -78,17 +255,5 @@
   margin: 0 0 $spacing-sm;
   line-height: 1.6;
   font-size: 0.95rem;
-}
-
-.read-more {
-  font-size: $font-size-small;
-  font-weight: 500;
-  color: $color-accent;
-  text-decoration: none;
-  letter-spacing: 0.02em;
-
-  &:hover {
-    color: darken($color-accent, 15%);
-    text-decoration: none;
-  }
+  font-style: italic;
 }

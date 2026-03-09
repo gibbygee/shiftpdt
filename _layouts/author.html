@@ -7,7 +7,7 @@ layout: default
     <header class="author-header">
       <h1 class="author-name">{{ page.name }}</h1>
       {% if page.bio %}
-        <p class="author-bio">{{ page.bio }}</p>
+        <p class="author-bio">{{ page.bio }}{% if page.website %} <a href="{{ page.website }}" target="_blank" rel="noopener">{{ page.website | remove: "https://" }}</a>{% endif %}</p>
       {% endif %}
     </header>
 

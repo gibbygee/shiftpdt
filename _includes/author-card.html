@@ -4,7 +4,7 @@
 <div class="author-card">
   <div class="author-card-info">
     <a href="{{ author.url | relative_url }}" class="author-card-name">{{ author.name }}</a>
-    <p class="author-card-bio">{{ author.bio }}</p>
+    <p class="author-card-bio">{{ author.bio }}{% if author.website %} <a href="{{ author.website }}" target="_blank" rel="noopener">{{ author.website | remove: "https://" }}</a>{% endif %}</p>
   </div>
 </div>
 {% endif %}

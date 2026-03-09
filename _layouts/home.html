@@ -6,23 +6,67 @@ layout: default
   <div class="container">
     {{ content }}
 
-    <div class="post-feed">
+    {% comment %} Collect latest post per author {% endcomment %}
+    {% assign featured_posts = "" | split: "" %}
+    {% for author_entry in site.data.authors %}
+      {% assign author_key = author_entry[0] %}
+      {% assign author_posts = site.posts | where: "author", author_key | sort: "date" | reverse %}
+      {% assign latest = author_posts | first %}
+      {% if latest %}
+        {% assign featured_posts = featured_posts | push: latest %}
+      {% endif %}
+    {% endfor %}
+    {% assign featured_posts = featured_posts | sort: "date" | reverse %}
+
+    {% if featured_posts.size > 0 %}
+    <div class="carousel" id="featured-carousel">
+      <div class="carousel-track">
+        {% for post in featured_posts %}
+          {% assign author = site.data.authors[post.author] %}
+          <div class="carousel-slide{% if forloop.first %} is-active{% endif %}">
+            <a href="{{ post.url | relative_url }}" class="carousel-link">
+              <div class="carousel-label">Featured</div>
+              <h2 class="carousel-title">{{ post.title }}</h2>
+              <p class="carousel-excerpt">{{ post.content | strip_html | truncatewords: 35 }}</p>
+              <div class="carousel-meta">
+                {% if author %}<span class="carousel-author">{{ author.name }}</span><span class="meta-sep">·</span>{% endif %}
+                <time>{{ post.date | date: "%B %d, %Y" }}</time>
+              </div>
+            </a>
+          </div>
+        {% endfor %}
+      </div>
+
+      {% if featured_posts.size > 1 %}
+      <div class="carousel-controls">
+        <button class="carousel-btn carousel-btn--prev" aria-label="Previous">&#8592;</button>
+        <div class="carousel-dots">
+          {% for post in featured_posts %}
+            <button class="carousel-dot{% if forloop.first %} is-active{% endif %}" data-index="{{ forloop.index0 }}" aria-label="Slide {{ forloop.index }}"></button>
+          {% endfor %}
+        </div>
+        <button class="carousel-btn carousel-btn--next" aria-label="Next">&#8594;</button>
+      </div>
+      {% endif %}
+    </div>
+    {% endif %}
+
+    <div class="post-grid">
       {% assign posts = site.posts | sort: 'date' | reverse %}
       {% for post in posts limit:20 %}
         {% assign author = site.data.authors[post.author] %}
-        <article class="post-card">
-          <div class="post-card-meta">
-            <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %d, %Y" }}</time>
-            {% if author %}
-              <span class="meta-sep">·</span>
-              <a href="{{ author.url | relative_url }}" class="post-card-author">{{ author.name }}</a>
-            {% endif %}
-          </div>
-          <h2 class="post-card-title">
-            <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-          </h2>
-          <p class="post-card-excerpt">{{ post.content | strip_html | truncatewords: 40 }}</p>
-          <a href="{{ post.url | relative_url }}" class="read-more">Read →</a>
+        <article class="post-tile">
+          <a href="{{ post.url | relative_url }}" class="post-tile-link">
+            <div class="post-tile-meta">
+              <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %d, %Y" }}</time>
+              {% if author %}
+                <span class="meta-sep">·</span>
+                <span class="post-tile-author">{{ author.name }}</span>
+              {% endif %}
+            </div>
+            <h2 class="post-tile-title">{{ post.title }}</h2>
+            <p class="post-tile-excerpt">{{ post.content | strip_html | truncatewords: 20 }}</p>
+          </a>
         </article>
       {% endfor %}
     </div>

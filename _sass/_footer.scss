@@ -1,24 +1,30 @@
 .site-footer {
   background-color: $color-footer-bg;
-  padding: $spacing-lg $mobile-padding;
-  text-align: center;
+  border-top: 2px solid $color-rule;
+  padding: $spacing-md $mobile-padding;
   margin-top: auto;
 }
 
 .footer-container {
   max-width: $container-width;
   margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .footer-tagline {
+  font-family: $font-sans;
   color: $color-footer-text;
-  font-size: $font-size-small;
-  margin: 0 0 6px;
-  letter-spacing: 0.02em;
+  font-size: $font-size-xs;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
 }
 
 .footer-copy {
-  color: darken($color-footer-text, 15%);
+  font-family: $font-sans;
+  color: $color-footer-text;
   font-size: $font-size-xs;
   margin: 0;
 }

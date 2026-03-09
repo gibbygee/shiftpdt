@@ -4,13 +4,13 @@
 
 .page-header {
   margin-bottom: $spacing-lg;
-  padding-bottom: $spacing-md;
-  border-bottom: 1px solid $color-border;
+  padding-bottom: $spacing-sm;
+  border-bottom: 1px solid $color-border-dark;
 
   h1 {
     font-family: $font-serif;
-    font-size: 1.8rem;
-    font-weight: normal;
+    font-size: 1.5rem;
+    font-weight: bold;
     margin: 0;
     color: $color-text;
   }
@@ -19,21 +19,50 @@
 .page-content {
   line-height: 1.75;
 
-  p {
-    margin: 0 0 $spacing-md;
-  }
+  p { margin: 0 0 $spacing-md; }
 
   h2 {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     margin: $spacing-lg 0 $spacing-sm;
-  }
-
-  a {
-    text-decoration: underline;
   }
 }
 
 .no-posts {
   color: $color-text-secondary;
   font-style: italic;
+}
+
+// Compact post list
+.post-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.post-list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: $spacing-md;
+  padding: 7px 0;
+  border-bottom: 1px solid $color-border;
+
+  &:last-child { border-bottom: none; }
+
+  a {
+    font-size: 0.9rem;
+    color: $color-text;
+    text-decoration: none;
+    &:hover { color: $color-link; text-decoration: underline; }
+  }
+}
+
+.post-list-meta {
+  font-family: $font-sans;
+  font-size: $font-size-xs;
+  color: $color-text-secondary;
+  white-space: nowrap;
+  flex-shrink: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
 }

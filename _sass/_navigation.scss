@@ -8,29 +8,25 @@
   }
 
   a {
-    color: $color-header-nav;
+    color: $color-text;
     text-decoration: none;
+    font-family: $font-sans;
     font-size: $font-size-small;
-    font-weight: 500;
-    letter-spacing: 0.03em;
-    text-transform: uppercase;
-    transition: color 0.15s ease;
+    font-variant: small-caps;
+    letter-spacing: 0.06em;
+    font-weight: 600;
+    padding-bottom: 6px;
+    border-bottom: 2px solid transparent;
 
-    &:hover,
-    &.active {
-      color: $color-header-nav-hover;
+    &:hover {
+      color: $color-link;
+      border-bottom-color: $color-link;
       text-decoration: none;
     }
 
     &.active {
-      border-bottom: 2px solid $color-accent;
-      padding-bottom: 2px;
-    }
-  }
-
-  @media (max-width: $breakpoint-mobile) {
-    ul {
-      gap: $spacing-sm;
+      color: $color-text;
+      border-bottom-color: $color-rule;
     }
   }
 }

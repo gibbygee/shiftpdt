@@ -1,9 +1,7 @@
 .site-header {
   background-color: $color-header-bg;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 2px solid $color-rule;
+  padding: $spacing-md 0 0;
 }
 
 .header-container {
@@ -14,27 +12,22 @@
 
 .header-top {
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: space-between;
-  padding: 12px 0;
-  gap: $spacing-md;
+  padding-bottom: $spacing-sm;
 }
 
 .site-logo {
-  flex-shrink: 0;
-
   a {
     display: block;
     line-height: 0;
+    text-decoration: none;
 
-    &:hover {
-      opacity: 0.85;
-      text-decoration: none;
-    }
+    &:hover { opacity: 0.75; }
   }
 
   .logo-img {
-    height: 44px;
+    height: 64px;
     width: auto;
     display: block;
   }
@@ -44,11 +37,8 @@
   .header-top {
     flex-direction: column;
     align-items: flex-start;
-    gap: $spacing-xs;
-    padding: $spacing-sm 0;
+    gap: $spacing-sm;
   }
 
-  .site-logo .logo-img {
-    height: 36px;
-  }
+  .site-logo .logo-img { height: 44px; }
 }

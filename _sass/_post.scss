@@ -7,97 +7,89 @@
 }
 
 .post-nav-back {
+  font-family: $font-sans;
   font-size: $font-size-small;
   color: $color-text-secondary;
   text-decoration: none;
-  font-weight: 500;
 
-  &:hover {
-    color: $color-link;
-    text-decoration: none;
-  }
+  &:hover { color: $color-link; }
 }
 
 .post-header {
   margin-bottom: $spacing-lg;
+  padding-bottom: $spacing-md;
+  border-bottom: 1px solid $color-border-dark;
 }
 
 .post-meta {
+  font-family: $font-sans;
   font-size: $font-size-small;
   color: $color-text-secondary;
   margin-bottom: 12px;
   display: flex;
   align-items: center;
   gap: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 .post-author-link {
-  color: $color-accent;
-  font-weight: 500;
-
-  &:hover {
-    color: darken($color-accent, 15%);
-    text-decoration: none;
-  }
+  color: $color-text-secondary;
+  &:hover { color: $color-link; }
 }
 
 .post-title {
   font-family: $font-serif;
-  font-size: 2rem;
-  font-weight: normal;
-  line-height: 1.25;
+  font-size: 1.75rem;
+  font-weight: bold;
+  line-height: 1.2;
   margin: 0;
   color: $color-text;
 }
 
 .post-content {
   font-family: $font-serif;
-  font-size: 1.05rem;
-  line-height: 1.75;
+  font-size: 1rem;
+  line-height: 1.8;
   color: $color-text;
   max-width: 680px;
 
-  p {
-    margin: 0 0 $spacing-md;
-  }
+  p { margin: 0 0 $spacing-md; }
 
   h2, h3, h4 {
-    font-family: $font-sans;
+    font-family: $font-serif;
     margin: $spacing-lg 0 $spacing-sm;
     line-height: 1.3;
   }
 
-  h2 { font-size: 1.35rem; }
-  h3 { font-size: 1.15rem; }
+  h2 { font-size: 1.2rem; }
+  h3 { font-size: 1.05rem; }
 
   ul, ol {
-    padding-left: 1.5em;
+    padding-left: 2em;
     margin: 0 0 $spacing-md;
 
-    li {
-      margin-bottom: 6px;
-    }
-  }
-
-  strong {
-    font-weight: 700;
-    color: $color-text;
+    li { margin-bottom: 4px; }
   }
 
   a {
+    color: $color-link;
     text-decoration: underline;
-    text-decoration-color: rgba($color-link, 0.4);
+  }
 
-    &:hover {
-      text-decoration-color: $color-link;
-    }
+  strong { font-weight: bold; }
+  em     { font-style: italic; }
+
+  small {
+    font-size: $font-size-small;
+    color: $color-text-secondary;
   }
 }
 
 .post-footer {
   margin-top: $spacing-xl;
   padding-top: $spacing-lg;
-  border-top: 1px solid $color-border;
+  border-top: 1px solid $color-border-dark;
 }
 
 .post-nav-links {
@@ -110,45 +102,35 @@
 }
 
 .post-nav-link {
+  font-family: $font-sans;
   font-size: $font-size-small;
   color: $color-text-secondary;
   text-decoration: none;
   max-width: 45%;
 
-  &:hover {
-    color: $color-link;
-    text-decoration: none;
-  }
-
-  &--older {
-    margin-left: auto;
-    text-align: right;
-  }
+  &:hover { color: $color-link; }
+  &--older { margin-left: auto; text-align: right; }
 }
 
 // Author card
 .author-card {
-  display: flex;
-  gap: $spacing-md;
-  align-items: flex-start;
   padding: $spacing-md;
-  background: darken($color-bg, 2%);
-  border-radius: 6px;
-  border: 1px solid $color-border;
+  border: 1px solid $color-border-dark;
+  background: #f9f9f9;
 }
 
 .author-card-name {
   display: block;
-  font-weight: 600;
-  font-size: 0.95rem;
+  font-family: $font-sans;
+  font-size: $font-size-small;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
   color: $color-text;
   margin-bottom: 4px;
   text-decoration: none;
 
-  &:hover {
-    color: $color-link;
-    text-decoration: none;
-  }
+  &:hover { color: $color-link; }
 }
 
 .author-card-bio {
@@ -156,4 +138,5 @@
   font-size: $font-size-small;
   color: $color-text-secondary;
   line-height: 1.5;
+  font-style: italic;
 }
