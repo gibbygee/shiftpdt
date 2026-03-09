@@ -1,0 +1,10 @@
+{% assign author_key = include.author %}
+{% assign author = site.data.authors[author_key] %}
+{% if author %}
+<div class="author-card">
+  <div class="author-card-info">
+    <a href="{{ author.url | relative_url }}" class="author-card-name">{{ author.name }}</a>
+    <p class="author-card-bio">{{ author.bio }}</p>
+  </div>
+</div>
+{% endif %}

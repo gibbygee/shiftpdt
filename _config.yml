@@ -1,0 +1,42 @@
+title: shiftpdt
+description: "A community blog about building software products."
+baseurl: "/shiftpdt"
+url: "https://gibbygee.github.io"
+
+permalink: /:year/:month/:day/:title/
+markdown: kramdown
+theme: null
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+collections:
+  pages:
+    output: true
+    permalink: /:slug/
+  authors:
+    output: true
+    permalink: /authors/:slug/
+
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "page"
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+  - scope:
+      path: ""
+      type: "authors"
+    values:
+      layout: "author"
+
+exclude:
+  - README.md
+  - Gemfile.lock

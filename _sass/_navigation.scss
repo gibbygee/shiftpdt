@@ -1,0 +1,36 @@
+.site-nav {
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: $spacing-md;
+  }
+
+  a {
+    color: $color-header-nav;
+    text-decoration: none;
+    font-size: $font-size-small;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    transition: color 0.15s ease;
+
+    &:hover,
+    &.active {
+      color: $color-header-nav-hover;
+      text-decoration: none;
+    }
+
+    &.active {
+      border-bottom: 2px solid $color-accent;
+      padding-bottom: 2px;
+    }
+  }
+
+  @media (max-width: $breakpoint-mobile) {
+    ul {
+      gap: $spacing-sm;
+    }
+  }
+}

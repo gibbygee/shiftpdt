@@ -1,0 +1,66 @@
+.author-page {
+  padding: $spacing-xl 0;
+}
+
+.author-header {
+  margin-bottom: $spacing-xl;
+  padding-bottom: $spacing-lg;
+  border-bottom: 2px solid $color-border;
+}
+
+.author-name {
+  font-family: $font-serif;
+  font-size: 2rem;
+  font-weight: normal;
+  margin: 0 0 $spacing-sm;
+  color: $color-text;
+}
+
+.author-bio {
+  color: $color-text-secondary;
+  font-size: 1.05rem;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.author-posts-heading {
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: $color-text-secondary;
+  font-family: $font-sans;
+  margin: 0 0 $spacing-md;
+  font-weight: 600;
+}
+
+// Authors index page
+.authors-list {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+  margin-top: $spacing-lg;
+}
+
+.authors-item {
+  padding: $spacing-md;
+  border: 1px solid $color-border;
+  border-radius: 6px;
+  background: $color-card-bg;
+
+  a {
+    font-weight: 600;
+    font-size: 1.05rem;
+    color: $color-text;
+    text-decoration: none;
+
+    &:hover {
+      color: $color-link;
+    }
+  }
+
+  p {
+    margin: 6px 0 0;
+    font-size: $font-size-small;
+    color: $color-text-secondary;
+  }
+}

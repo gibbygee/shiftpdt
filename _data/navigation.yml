@@ -1,0 +1,15 @@
+- name: Home
+  link: /
+  visible: true
+
+- name: Writing
+  link: /writing/
+  visible: true
+
+- name: Authors
+  link: /authors/
+  visible: true
+
+- name: About
+  link: /about/
+  visible: true

@@ -1,0 +1,35 @@
+---
+layout: default
+---
+
+<div class="author-page">
+  <div class="container">
+    <header class="author-header">
+      <h1 class="author-name">{{ page.name }}</h1>
+      {% if page.bio %}
+        <p class="author-bio">{{ page.bio }}</p>
+      {% endif %}
+    </header>
+
+    <section class="author-posts">
+      <h2 class="author-posts-heading">Writing</h2>
+      <div class="post-feed">
+        {% assign author_posts = site.posts | where: "author", page.slug %}
+        {% for post in author_posts %}
+          <article class="post-card post-card--compact">
+            <div class="post-card-meta">
+              <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %d, %Y" }}</time>
+            </div>
+            <h3 class="post-card-title">
+              <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+            </h3>
+            <p class="post-card-excerpt">{{ post.content | strip_html | truncatewords: 30 }}</p>
+          </article>
+        {% endfor %}
+        {% if author_posts.size == 0 %}
+          <p class="no-posts">No posts yet.</p>
+        {% endif %}
+      </div>
+    </section>
+  </div>
+</div>

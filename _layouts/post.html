@@ -1,0 +1,42 @@
+---
+layout: default
+---
+
+<article class="post">
+  <div class="container">
+    <nav class="post-nav">
+      <a href="{{ '/writing/' | relative_url }}" class="post-nav-back">← All posts</a>
+    </nav>
+
+    <header class="post-header">
+      <div class="post-meta">
+        <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %d, %Y" }}</time>
+        {% assign author = site.data.authors[page.author] %}
+        {% if author %}
+          <span class="meta-sep">·</span>
+          <a href="{{ author.url | relative_url }}" class="post-author-link">{{ author.name }}</a>
+        {% endif %}
+      </div>
+      <h1 class="post-title">{{ page.title }}</h1>
+    </header>
+
+    <div class="post-content">
+      {{ content }}
+    </div>
+
+    <footer class="post-footer">
+      {% if page.author %}
+        {% include author-card.html author=page.author %}
+      {% endif %}
+
+      <div class="post-nav-links">
+        {% if page.next %}
+          <a href="{{ page.next.url | relative_url }}" class="post-nav-link">← {{ page.next.title }}</a>
+        {% endif %}
+        {% if page.previous %}
+          <a href="{{ page.previous.url | relative_url }}" class="post-nav-link post-nav-link--older">{{ page.previous.title }} →</a>
+        {% endif %}
+      </div>
+    </footer>
+  </div>
+</article>
