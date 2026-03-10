@@ -12,7 +12,7 @@ Posts are written in plain markdown and published here. If you'd like to contrib
 
 ## How to post
 
-All submissions welcome. Open a pull request on [GitHub](https://github.com/gibbygee/shiftpdt).
+All submissions welcome. Open a pull request on [GitHub](https://github.com/gibbygee/shiftpdt){:target="_blank" rel="noopener"}.
 
 Use the starter files in `templates/` or follow the steps below.
 
