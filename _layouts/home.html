@@ -52,8 +52,10 @@ layout: default
     {% endif %}
 
     <div class="post-grid">
+      {% assign featured_urls = featured_posts | map: "url" %}
       {% assign posts = site.posts | sort: 'date' | reverse %}
       {% for post in posts limit:20 %}
+        {% if featured_urls contains post.url %}{% continue %}{% endif %}
         {% assign author = site.data.authors[post.author] %}
         <article class="post-tile">
           <a href="{{ post.url | relative_url }}" class="post-tile-link">
