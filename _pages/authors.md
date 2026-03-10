@@ -8,9 +8,12 @@ permalink: /authors/
 {% for author_page in site.authors %}
   {% assign author = site.data.authors[author_page.slug] %}
   <div class="authors-item">
-    <a href="{{ author_page.url | relative_url }}">{{ author_page.name }}</a>
-    {% if author_page.bio %}
-      <p>{{ author_page.bio }}</p>
+    <p><strong>{{ author.name }}</strong></p>
+    {% if author.bio %}
+      <p>{{ author.bio }}</p>
+      {% if author.website %}
+        <p><a href="{{ author.website }}" target="_blank" rel="noopener">{{ author.website | remove: "https://" }}</a></p>
+      {% endif %}
     {% endif %}
   </div>
 {% endfor %}

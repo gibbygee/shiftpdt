@@ -14,7 +14,7 @@ layout: default
         {% assign author = site.data.authors[page.author] %}
         {% if author %}
           <span class="meta-sep">·</span>
-          <a href="{{ author.url | relative_url }}" class="post-author-link">{{ author.name }}</a>
+          <a href="{{ '/authors/' | append: page.author | relative_url }}" class="post-author-link">{{ author.name }}</a>
         {% endif %}
       </div>
       <h1 class="post-title">{{ page.title }}</h1>
