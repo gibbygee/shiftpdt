@@ -140,3 +140,25 @@
   line-height: 1.5;
   font-style: italic;
 }
+
+// Dispatch floating avatar
+.dispatch-avatar {
+  display: block;
+  float: right;
+  margin: 0 0 0.5rem 1rem;
+}
+
+.dispatch-float {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+}
+
+// Dispatch clear
+.dispatch-clear {
+  display: block;
+  clear: both;
+  height: 0;
+}
