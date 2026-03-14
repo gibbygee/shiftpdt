@@ -1,9 +1,20 @@
 .post {
-  padding: $spacing-xl 0;
+  padding: $spacing-md 0 $spacing-xl;
 }
 
 .post-nav {
-  margin-bottom: $spacing-lg;
+  padding: $spacing-sm 0;
+  margin-bottom: 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  line-height: 1;
+}
+
+.post-nav-sep {
+  font-family: $font-sans;
+  font-size: $font-size-small;
+  color: $color-border;
 }
 
 .post-nav-back {
@@ -101,15 +112,33 @@
   gap: $spacing-md;
 }
 
-.post-nav-link {
-  font-family: $font-sans;
-  font-size: $font-size-small;
-  color: $color-text-secondary;
+.post-nav-btn {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 0;
+  border: none;
   text-decoration: none;
   max-width: 45%;
 
-  &:hover { color: $color-link; }
+  &:hover .post-nav-title { color: $color-link; }
   &--older { margin-left: auto; text-align: right; }
+  &--placeholder { visibility: hidden; }
+}
+
+.post-nav-label {
+  font-family: $font-sans;
+  font-size: $font-size-small;
+  color: $color-text-secondary;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.post-nav-title {
+  font-family: $font-serif;
+  font-size: $font-size-small;
+  color: $color-text;
+  line-height: 1.3;
 }
 
 // Author card

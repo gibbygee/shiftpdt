@@ -2,7 +2,18 @@
 layout: page
 title: All Posts
 permalink: /writing/
+hide_title: true
 ---
+
+<nav class="post-nav">
+  <a href="{{ '/' | relative_url }}" class="post-nav-back">← Home</a>
+  <span class="post-nav-sep">/</span>
+  <span class="post-nav-back">All posts</span>
+</nav>
+
+<header class="page-header">
+  <h1>{{ page.title }}</h1>
+</header>
 
 {% assign posts = site.posts | sort: 'date' | reverse %}
 <ul class="post-list">

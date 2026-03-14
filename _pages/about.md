@@ -2,7 +2,18 @@
 layout: page
 title: About
 permalink: /about/
+hide_title: true
 ---
+
+<nav class="post-nav" style="visibility: hidden;">
+  <span class="post-nav-back">← Home</span>
+  <span class="post-nav-sep">/</span>
+  <span class="post-nav-back">About</span>
+</nav>
+
+<header class="page-header">
+  <h1>{{ page.title }}</h1>
+</header>
 
 shiftpdt is a community blog about building software products — the strategy, the craft, the mess, and the occasional epiphany.
 

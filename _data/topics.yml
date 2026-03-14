@@ -1,0 +1,36 @@
+- name: Product Management
+  size: single
+  posts:
+    - responsive-pms-are-the-worst
+    - manage-attention-not-time
+    - maybe-pm-should-be-slow
+    - a-roadmap-is-a-story
+    - fundamentals-are-always-in
+
+- name: Shipping & Building
+  size: single
+  posts:
+    - ship-more
+    - software-is-cumulative
+    - change-your-teams-clock
+    - software-is-mostly-not-waste
+
+- name: Software Business
+  size: single
+  posts:
+    - software-faith
+    - financial-physics
+    - you-will-regret-snowflakes
+    - beware-captive-it
+    - not-complex-simple
+
+- name: Culture
+  size: single
+  posts:
+    - back-story
+    - staff-work
+    - low-agency-virus
+    - as-good-as-it-gets
+    - responding-in-comments
+    - repetition-and-persuasion
+    - too-much-talking

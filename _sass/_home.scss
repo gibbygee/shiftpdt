@@ -4,9 +4,9 @@
 
 // Carousel
 .carousel {
-  border: 1px solid $color-border-dark;
-  margin-bottom: 20px;
-  background: $color-bg;
+  border: 2px solid $color-border-dark;
+  margin-bottom: $spacing-sm;
+  background: #fafaf7;
 }
 
 .carousel-track {
@@ -22,19 +22,19 @@
 
 .carousel-link {
   display: block;
-  padding: $spacing-lg $spacing-xl;
+  padding: $spacing-md $spacing-lg;
   text-decoration: none;
   color: inherit;
 
   &:hover {
-    background: #f9f9f9;
+    background: #f5f5f0;
     text-decoration: none;
 
     .carousel-title { color: $color-link; }
   }
 
   @media (max-width: $breakpoint-mobile) {
-    padding: $spacing-md;
+    padding: $spacing-xs $spacing-sm;
   }
 }
 
@@ -50,24 +50,24 @@
 
 .carousel-title {
   font-family: $font-serif;
-  font-size: 1.6rem;
+  font-size: 1.5rem;
   font-weight: bold;
   line-height: 1.25;
-  margin: 0 0 $spacing-sm;
+  margin: 0 0 8px;
   color: $color-text;
 
   @media (max-width: $breakpoint-mobile) {
-    font-size: 1.25rem;
+    font-size: 1.15rem;
   }
 }
 
 .carousel-excerpt {
   font-family: $font-serif;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   color: $color-text-secondary;
   font-style: italic;
-  line-height: 1.65;
-  margin: 0 0 $spacing-md;
+  line-height: 1.5;
+  margin: 0 0 $spacing-sm;
   max-width: 620px;
 }
 
@@ -122,84 +122,75 @@
   &:hover { background: $color-text-secondary; }
 }
 
-// Tile grid
-.post-grid {
+// Topic grid
+.topic-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 1px;
   border: 1px solid $color-border-dark;
   background-color: $color-border-dark;
-
-  @media (max-width: 900px) {
-    grid-template-columns: repeat(2, 1fr);
-  }
 
   @media (max-width: $breakpoint-mobile) {
     grid-template-columns: 1fr;
   }
 }
 
-.post-tile {
+.topic-tile {
   background: $color-bg;
-  overflow: hidden;
+  padding: $spacing-sm $spacing-md;
+
 }
 
-.post-tile-link {
+.topic-tile-heading {
+  font-family: $font-sans;
+  font-size: $font-size-xs;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: $color-text-secondary;
+  margin: 0 0 $spacing-xs;
+  padding-bottom: $spacing-xs;
+  border-bottom: 1px solid $color-border;
+}
+
+.topic-tile-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.topic-tile-item {
   display: flex;
-  flex-direction: column;
-  height: 100%;
-  padding: $spacing-md;
-  text-decoration: none;
-  color: inherit;
+  align-items: baseline;
+  gap: 8px;
+  padding: 4px 0;
 
-  &:hover {
-    background: #f9f9f9;
-    text-decoration: none;
-
-    .post-tile-title { color: $color-link; }
+  & + & {
+    border-top: 1px solid lighten($color-border, 5%);
   }
 }
 
-.post-tile-meta {
+.topic-tile-link {
+  font-family: $font-serif;
+  font-size: 0.95rem;
+  font-weight: bold;
+  color: $color-text;
+  text-decoration: none;
+  line-height: 1.3;
+
+  &:hover { color: $color-link; }
+}
+
+.topic-tile-meta {
   font-family: $font-sans;
   font-size: $font-size-xs;
   color: $color-text-secondary;
-  margin-bottom: 8px;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-}
-
-.post-tile-author {
-  color: $color-text-secondary;
+  white-space: nowrap;
+  margin-left: auto;
 }
 
 .meta-sep {
   color: $color-border;
-}
-
-.post-tile-title {
-  margin: 0 0 8px;
-  font-family: $font-serif;
-  font-size: 1rem;
-  font-weight: bold;
-  line-height: 1.3;
-  color: $color-text;
-  flex-grow: 1;
-}
-
-.post-tile-excerpt {
-  margin: 0;
-  font-size: $font-size-small;
-  color: $color-text-secondary;
-  line-height: 1.5;
-  font-style: italic;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
 }
 
 // Feed layout — /writing/ and author pages

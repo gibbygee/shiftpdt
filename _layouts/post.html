@@ -5,7 +5,9 @@ layout: default
 <article class="post">
   <div class="container">
     <nav class="post-nav">
-      <a href="{{ '/writing/' | relative_url }}" class="post-nav-back">← All posts</a>
+      <a href="{{ '/' | relative_url }}" class="post-nav-back">← Home</a>
+      <span class="post-nav-sep">/</span>
+      <a href="{{ '/writing/' | relative_url }}" class="post-nav-back">All posts</a>
     </nav>
 
     <header class="post-header">
@@ -31,10 +33,20 @@ layout: default
 
       <div class="post-nav-links">
         {% if page.next %}
-          <a href="{{ page.next.url | relative_url }}" class="post-nav-link">← {{ page.next.title }}</a>
+          <a href="{{ page.next.url | relative_url }}" class="post-nav-btn post-nav-btn--newer">
+            <span class="post-nav-label">← Newer</span>
+            <span class="post-nav-title">{{ page.next.title }}</span>
+          </a>
+        {% else %}
+          <span class="post-nav-btn post-nav-btn--placeholder"></span>
         {% endif %}
         {% if page.previous %}
-          <a href="{{ page.previous.url | relative_url }}" class="post-nav-link post-nav-link--older">{{ page.previous.title }} →</a>
+          <a href="{{ page.previous.url | relative_url }}" class="post-nav-btn post-nav-btn--older">
+            <span class="post-nav-label">Older →</span>
+            <span class="post-nav-title">{{ page.previous.title }}</span>
+          </a>
+        {% else %}
+          <span class="post-nav-btn post-nav-btn--placeholder"></span>
         {% endif %}
       </div>
     </footer>

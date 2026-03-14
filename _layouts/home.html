@@ -51,25 +51,25 @@ layout: default
     </div>
     {% endif %}
 
-    <div class="post-grid">
-      {% assign featured_urls = featured_posts | map: "url" %}
-      {% assign posts = site.posts | sort: 'date' | reverse %}
-      {% for post in posts limit:20 %}
-        {% if featured_urls contains post.url %}{% continue %}{% endif %}
-        {% assign author = site.data.authors[post.author] %}
-        <article class="post-tile">
-          <a href="{{ post.url | relative_url }}" class="post-tile-link">
-            <div class="post-tile-meta">
-              <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %d, %Y" }}</time>
-              {% if author %}
-                <span class="meta-sep">·</span>
-                <span class="post-tile-author">{{ author.name }}</span>
+    <div class="topic-grid">
+      {% for topic in site.data.topics %}
+        <div class="topic-tile{% if topic.size == 'double' %} topic-tile--double{% endif %}">
+          <h2 class="topic-tile-heading">{{ topic.name }}</h2>
+          <ul class="topic-tile-list">
+            {% for slug in topic.posts %}
+              {% assign post = site.posts | where: "slug", slug | first %}
+              {% if post %}
+                {% assign author = site.data.authors[post.author] %}
+                <li class="topic-tile-item">
+                  <a href="{{ post.url | relative_url }}" class="topic-tile-link">{{ post.title }}</a>
+                  <span class="topic-tile-meta">
+                    {% if author %}{{ author.name }} &middot; {% endif %}{{ post.date | date: "%b %Y" }}
+                  </span>
+                </li>
               {% endif %}
-            </div>
-            <h2 class="post-tile-title">{{ post.title }}</h2>
-            <p class="post-tile-excerpt">{{ post.content | strip_html | truncatewords: 20 }}</p>
-          </a>
-        </article>
+            {% endfor %}
+          </ul>
+        </div>
       {% endfor %}
     </div>
   </div>
