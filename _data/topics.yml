@@ -10,6 +10,7 @@
 - name: Shipping & Building
   size: single
   posts:
+    - campfire-model
     - ship-more
     - software-is-cumulative
     - change-your-teams-clock
